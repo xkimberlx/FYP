@@ -1,12 +1,8 @@
 import streamlit as st
 import pandas as pd
-import xgboost as xgb
 from sklearn.preprocessing import StandardScaler
 import joblib  # To load the saved scaler
 
-# # Load the pre-trained XGBoost model
-# model = xgb.XGBRegressor(objective='reg:squarederror', enable_categorical=True)
-# model.load_model('xgb_model.json')
 
 # Load the pre-trained Random Forest model
 model = joblib.load('rf_model.pkl')
