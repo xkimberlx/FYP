@@ -13,7 +13,7 @@ def download_file_from_github(url):
         raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
 # GitHub Release URL for your model
-model_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/xgb_model.pkl'
+model_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/rf_model.pkl'
 # scaler_url = 'https://github.com/<your-username>/<your-repository>/releases/download/v1.0/scaler.pkl'
 
 # Download the model and scaler from GitHub
