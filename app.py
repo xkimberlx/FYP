@@ -1,6 +1,24 @@
 import streamlit as st
 import pandas as pd
 import joblib as joblib
+import requests
+import os
+
+# GitHub release URL
+release_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/rf_model.pkl'
+
+# Function to download the model
+def download_model(url, local_path):
+    r = requests.get(url)
+    with open(local_path, 'wb') as f:
+        f.write(r.content)
+
+# Streamlit app
+if st.button('Download and Load Model'):
+    model_path = '/tmp/rf_model.pkl'  # Temporary location
+    download_model(release_url, model_path)
+    model = joblib.load(model_path)
+    st.write("Model loaded successfully from GitHub Releases!")
 
 # Load the pre-trained Random Forest model
 model = joblib.load('rf_model.pkl')
