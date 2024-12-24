@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import joblib as joblib
+import joblib 
 import requests
 import os
 
