@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import joblib as joblib
 
 # Load the pre-trained Random Forest model
 model = joblib.load('rf_model.pkl')
