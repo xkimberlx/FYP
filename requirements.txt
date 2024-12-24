@@ -1,0 +1,5 @@
+joblib
+xgboost
+pandas
+streamlit
+# add other dependencies here
