@@ -4,24 +4,28 @@ import joblib as joblib
 import requests
 import os
 
-# GitHub release URL
-release_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/rf_model.pkl'
+# Function to download file from GitHub Release
+def download_file_from_github(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return io.BytesIO(response.content)
+    else:
+        raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
-# Function to download the model
-def download_model(url, local_path):
-    r = requests.get(url)
-    with open(local_path, 'wb') as f:
-        f.write(r.content)
+# GitHub Release URL for your model
+model_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/xgb_model.pkl'
+# scaler_url = 'https://github.com/<your-username>/<your-repository>/releases/download/v1.0/scaler.pkl'
 
-# Streamlit app
-if st.button('Download and Load Model'):
-    model_path = '/tmp/rf_model.pkl'  # Temporary location
-    download_model(release_url, model_path)
-    model = joblib.load(model_path)
-    st.write("Model loaded successfully from GitHub Releases!")
+# Download the model and scaler from GitHub
+model_file = download_file_from_github(model_url)
+# scaler_file = download_file_from_github(scaler_url)
 
-# Load the pre-trained Random Forest model
-model = joblib.load('rf_model.pkl')
+# Load the model and scaler
+model = joblib.load(model_file)
+# scaler = joblib.load(scaler_file)
+
+# # Load the pre-trained Random Forest model
+# model = joblib.load('rf_model.pkl')
 
 # Load the saved scaler
 scaler = joblib.load('scaler.pkl')
