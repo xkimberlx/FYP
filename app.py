@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import joblib  # To load the saved scaler
 
 
 # Load the pre-trained Random Forest model
