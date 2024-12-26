@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib 
 import requests
-import os
+import io 
 
 # Function to download file from GitHub Release
 def download_file_from_github(url):
