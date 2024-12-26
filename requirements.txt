@@ -2,4 +2,5 @@ joblib
 xgboost
 pandas
 streamlit
+scikit-learn
 # add other dependencies here
