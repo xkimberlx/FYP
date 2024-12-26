@@ -1,33 +1,29 @@
 import streamlit as st
 import pandas as pd
-import joblib 
+import joblib
 import requests
-import io 
+import bz2file
+import io
 
 # Function to download file from GitHub Release
 def download_file_from_github(url):
     response = requests.get(url)
     if response.status_code == 200:
-        return io.BytesIO(response.content)
+        return io.BytesIO(response.content)  # Return as BytesIO object
     else:
         raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
-# GitHub Release URL for your model
-model_url = 'https://github.com/xkimberlx/FYP/releases/tag/v1.0.0/rf_model.pkl'
-# scaler_url = 'https://github.com/<your-username>/<your-repository>/releases/download/v1.0/scaler.pkl'
+# GitHub Release URL for your model (Make sure it's the .pkl.bz2 file)
+model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl.bz2'
 
-# Download the model and scaler from GitHub
+# Download the model file
 model_file = download_file_from_github(model_url)
-# scaler_file = download_file_from_github(scaler_url)
 
-# Load the model and scaler
-model = joblib.load(model_file)
-# scaler = joblib.load(scaler_file)
+# Decompress and load the model
+with bz2file.BZ2File(model_file, 'rb') as f:
+    model = joblib.load(f)
 
-# # Load the pre-trained Random Forest model
-# model = joblib.load('rf_model.pkl')
-
-# Load the saved scaler
+# Load the saved scaler (Make sure scaler.pkl is accessible)
 scaler = joblib.load('scaler.pkl')
 
 # Streamlit Web App title
