@@ -14,13 +14,13 @@ def download_file_from_github(url):
         raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
 # GitHub Release URL for your model (Make sure it's the .pkl.bz2 file)
-model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl.bz2'
+model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/rf_model.pkl.bz2'
 
 # Download the model file
 model_file = download_file_from_github(model_url)
 
-# Decompress and load the model
-with bz2file.BZ2File(model_file, 'rb') as f:
+# Decompress and load the model using Python's built-in bz2 module
+with bz2.BZ2File(model_file, 'rb') as f:
     model = joblib.load(f)
 
 # Load the saved scaler (Make sure scaler.pkl is accessible)
