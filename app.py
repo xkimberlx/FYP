@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import requests
-import bz2file
+import bz2
 import io
 
 # Function to download file from GitHub Release
