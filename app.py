@@ -5,19 +5,19 @@ import requests
 import bz2
 import io
 
-# Function to download file from GitHub Release
-def download_file_from_github(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        return io.BytesIO(response.content)  # Return as BytesIO object
-    else:
-        raise Exception(f"Failed to download the file, status code: {response.status_code}")
+# # Function to download file from GitHub Release
+# def download_file_from_github(url):
+#     response = requests.get(url)
+#     if response.status_code == 200:
+#         return io.BytesIO(response.content)  # Return as BytesIO object
+#     else:
+#         raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
-# GitHub Release URL for your model (Make sure it's the .pkl.bz2 file)
-model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl.bz2'
+# # GitHub Release URL for your model (Make sure it's the .pkl.bz2 file)
+# model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl.bz2'
 
-# Download the model file
-model_file = download_file_from_github(model_url)
+# # Download the model file
+# model_file = download_file_from_github(model_url)
 
 # Decompress and load the model using Python's built-in bz2 module
 with bz2.BZ2File(model_file, 'rb') as f:
@@ -25,6 +25,28 @@ with bz2.BZ2File(model_file, 'rb') as f:
 
 # Load the saved scaler (Make sure scaler.pkl is accessible)
 scaler = joblib.load('scaler.pkl')
+
+# Custom CSS to change background image
+st.markdown(
+    """
+    <style>
+    body {
+        background-image: url('https://media.istockphoto.com/id/1329026011/photo/real-estate-growth-chart-3d-illustration.jpg?s=612x612&w=0&k=20&c=pSdRUY0_eRIc5646LB8CUh5YhI-7JFtzgNMAmtr5ufM=');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .stApp {
+        background-color: rgba(255, 255, 255, 0.7);  /* Optional: makes background slightly transparent */
+    }
+    
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Streamlit Web App title
 st.title("Rental Price Prediction")
