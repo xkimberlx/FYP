@@ -13,7 +13,7 @@ def download_file_from_github(url):
         raise Exception(f"Failed to download the file, status code: {response.status_code}")
 
 # GitHub Release URL for your model (Make sure it's the .pkl.bz2 file)
-model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl.bz2'
+model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_model.pkl'
 
 # Download the model file
 model_file = download_file_from_github(model_url)
