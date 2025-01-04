@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 import requests
-import bz2
 import io
 
 # Function to download file from GitHub Release
@@ -19,9 +18,8 @@ model_url = 'https://github.com/xkimberlx/FYP/releases/download/v1.0.0/best_rf_m
 # Download the model file
 model_file = download_file_from_github(model_url)
 
-# Decompress and load the model using Python's built-in bz2 module
-with bz2.BZ2File(model_file, 'rb') as f:
-    model = joblib.load(f)
+# Load the model from the file
+model = joblib.load(model_file)
 
 # Load the saved scaler (Make sure scaler.pkl is accessible)
 scaler = joblib.load('scaler.pkl')
