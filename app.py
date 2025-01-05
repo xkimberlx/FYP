@@ -57,7 +57,7 @@ region = st.radio("Select region", ('Kuala Lumpur', 'Selangor'))
 rooms = st.slider("Select number of rooms", 1, 5, value=1)
 near_ktm_lrt = st.radio("Is the property near KTM/LRT?", ('No', 'Yes'))
 parking = st.radio("Is parking available?", ('No', 'Yes'))
-additional_facilities_required = st.radio("Require additional facilities?\n\n(eg. Playground, Barbeque area, Multipurpose hall, Gymnasium, Lift, Sauna, Minimart, Swimming Pool, Security, Tennis Court, Squash Court, Jogging Track, Club house)" , ('No', 'Yes'))
+additional_facilities_required = st.radio("Require additional facilities?\n\n(eg. Playground, Barbeque area, Multipurpose hall, Gymnasium, Lift, etc)" , ('No', 'Yes'))
 
 # Convert categorical inputs to numeric
 parking = 1 if parking == 'Yes' else 0
