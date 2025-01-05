@@ -52,7 +52,7 @@ st.title("Rental Price Prediction")
 # Input widgets for the user
 property_type = st.selectbox("Select property type", ['Apartment', 'Condominium', 'Duplex', 'Flat', 'Landed House', 'Service Residence', 'Studio', 'Townhouse Condo'])
 furnished = st.selectbox("How furnished is the property?", ['Fully Furnished', 'Not Furnished', 'Partially Furnished'])
-size_sqft = st.number_input("Enter size (in square feet)", min_value=1, max_value=10000, value=1000)
+size_sqft = st.number_input("Enter size (in square feet)", min_value=500, max_value=10000, value=500)
 region = st.radio("Select region", ('Kuala Lumpur', 'Selangor'))
 rooms = st.slider("Select number of rooms", 1, 5, value=1)
 near_ktm_lrt = st.radio("Is the property near KTM/LRT?", ('No', 'Yes'))
