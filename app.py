@@ -118,4 +118,4 @@ if st.button('Predict Rental Price'):
     prediction = model.predict(input_df)
     
     # Display the result
-    st.write(f"Predicted Monthly Rent: RM {prediction[0]:,.2f}")
+    st.write(f"Predicted Monthly Rental Price: RM {prediction[0]:,.2f}")
