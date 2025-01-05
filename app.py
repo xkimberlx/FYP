@@ -113,7 +113,7 @@ input_df = pd.DataFrame([input_data])
 input_df[['size_sqft', 'rooms']] = scaler.transform(input_df[['size_sqft', 'rooms']])
 
 # Prediction button
-if st.button('Predict Rent Price'):
+if st.button('Predict Rental Price'):
     # Make the prediction
     prediction = model.predict(input_df)
     
